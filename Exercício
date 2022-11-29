@@ -1,0 +1,98 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void leituraMatriz(int Tmatriz, int m[][100])
+{
+  int i, j;
+  for(i=0;i<Tmatriz;i++)
+  {
+    for(j=0;j<Tmatriz;j++)
+    {
+      scanf("%d", &m[i][j]);
+    }
+  }
+  return 0;
+}
+
+void quadradoElementosMatriz(int Tmatriz, int quadradoM[][100], int m[][100])
+{
+  int i, j;
+  for (i=0;i<Tmatriz;i++)
+  {
+    for(j=0;j<Tmatriz;j++)
+    { 
+     quadradoM[i][j] = m[i][j] * m[i][j];
+    }
+    printf("\n");
+  }
+  return 0;
+}
+
+void imprimeMatriz(int Tmatriz, int quadradoM[][100])
+{
+  int i, j;
+  for (i=0;i<Tmatriz;i++)
+  {
+    for(j=0;j<Tmatriz;j++)
+    { 
+     printf("%d ", quadradoM[i][j]);
+    }
+    printf("\n");
+  }
+  printf("\n");
+  return 0;
+}
+
+void multiplicaMatriz(int Tmatriz, int multiplica[][100], int quadradoM[][100], int m[][100])
+{
+  int i, j, k;
+  for (i=0;i<Tmatriz;i++)
+  {
+    for(j=0;j<Tmatriz;j++)
+    { 
+      for(k=0;k<Tmatriz;k++)
+      {
+        multiplica[i][j] = multiplica[i][j] + m[i][k] * quadradoM[k][j];
+      }
+    }
+  }
+  return 0;
+}
+
+void imprimeMatriz2(int multiplica[][100], int Tmatriz)
+{
+  int i, j;
+  for (i=0;i<Tmatriz;i++)
+  {
+    for(j=0;j<Tmatriz;j++)
+    { 
+     printf("%d ", multiplica[i][j]);
+    }
+    printf("\n");
+  }
+  return 0;
+}
+
+void tracoMatriz(int Tmatriz, int traco, int multiplica[][100])
+{
+  int i;
+  for (i=0;i<Tmatriz;i++)
+  {
+  traco += multiplica[i][i];
+  }
+  printf("\nTraco: %d", traco);
+  return 0;
+}
+
+int main(void)
+{
+  int Tmatriz, m[100][100], quadradoM[100][100], multiplica[100][100], traco = 0;
+  scanf("%d", &Tmatriz);
+  leituraMatriz(Tmatriz, m);
+  quadradoElementosMatriz(Tmatriz, quadradoM, m);
+  imprimeMatriz(Tmatriz, quadradoM);
+  multiplicaMatriz(Tmatriz, multiplica, quadradoM, m);
+  imprimeMatriz2(multiplica, Tmatriz);
+  tracoMatriz(Tmatriz, traco, multiplica);
+  return 0;
+}
