@@ -1,4 +1,4 @@
-# Desafio-Fun-o-C--Matriz
+# Desafio-Funcao-C--Matriz
 Escreva um programa que: 
 1) leia uma matriz quadrada M1 com n linhas 
 2) gere a matriz M2 elevando os elementos da matriz M1 ao quadrado 
